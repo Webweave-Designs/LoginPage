@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    overflow: hidden;
+    width: 90%;
+    max-width: 100%;
+    min-height: 560px;
+    text-align: center;
+}
+.mobile-img,.mobile-img2{
+    display: none;
+}
+.container h1{
+    font-size: 2rem;
+    font-family: "Boldonse", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    
+}
+
+.container p {
+    font-size: 14px;
+    letter-spacing: 0.3px;
+}
+
+.container .line{
+    position: relative;
+    height: 1px;
+    width: 100%;
+    background: #333;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.container span {
+    position: absolute;
+    font-size: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: white;
+    padding: 5px 8px;
+}
+
+.container a {
+    color: #333;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.container .forget{
+    width: 100%;
+    text-align: right;
+    margin: 8px 0;
+}
+
+.container .forget a:hover{
+  text-decoration: underline;
+  color: black;
+}
+
+.container button {
+    background-color:#000;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 0;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    transition: all .5s;
+}
+
+.container button:hover{
+    opacity: .8;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.container .switch-button{
+    display: none;
+}
+.container button.hidden {
+    background-color: transparent;
+    border-color: #000;
+    color: #000;
+    width: 30%;
+}
+
+.container form {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+    width: 80%;
+}
+
+.container input {
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transition: all 0.6s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-in {
+    left: 0;
+    z-index: 2;
+}
+
+.container.active .sign-in {
+    transform: translateX(100%);
+}
+
+.sign-up {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.active .sign-up {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+
+@keyframes move {
+
+    0%,
+    49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.social-icons {
+    margin: 16px 0;
+}
+
+.social-icons a {
+    border: 1px solid #ccc;
+    border-radius: 40%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.social-icons a:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.social-icons a i{
+    font-size: 1.1rem;
+}
+
+.toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    z-index: 1000;
+    border-radius: 14px;
+}
+
+.container.active .toggle-container {
+    transform: translateX(-100%);
+}
+
+.toggle {
+    background-color: #fffbee;
+    height: 100%;
+    color: black;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle {
+    transform: translateX(50%);
+}
+
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+    gap: .5rem;
+    padding:60px 30px;
+}
+
+.toggle-panel .main-img{
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.toggle-panel .motif1,.toggle-panel .motif2{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+}
+
+.toggle-panel .motif1{
+    top: 100px;
+    right: 20px;
+    transform: rotate(40deg);
+}
+
+.toggle-panel .motif2{
+    top: 190px;
+    left: 50px;
+}
+.toggle-left {
+    transform: translateX(-200%);
+}
+
+.container.active .toggle-left {
+    transform: translateX(0);
+}
+
+.toggle-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.active .toggle-right {
+    transform: translateX(200%);
+}
+
+
+/* Responsive */
+
+@media only screen and (max-width:992px){
+    .container{
+      width: 100%;
+      height: 100%;
+    }
+    .container h1{
+        font-size: 1.7rem;
+        
+    }
+
+    .container form {
+        width: 90%;
+    }
+
+    .toggle-panel .main-img{
+        width: 85%;
+        height: 85%;
+    }
+  }
+
+  @media only screen and (max-width:890px){
+    .container form {
+        width: 100%;
+    }
+    .toggle-panel .motif1{
+        top: 120px;
+    }
+    
+    .toggle-panel .motif2{
+        left: 20px;
+    }
+  }
+
+  @media only screen and (max-width:768px){
+
+    .toggle-panel .main-img{
+        width: 80%;
+        height: 80%;
+    }
+
+    .container h1{
+        font-size: 1.5rem;
+        
+    }
+  }
+
+  @media only screen and (max-width:647px){
+    .container h1{
+        font-size: 1.3rem;   
+    }
+
+    .container p {
+        font-size: 12px;
+    }
+
+    .container span {
+        font-size: 10px;
+    }
+    .container a {
+        color: #333;
+        font-size: 11px;
+        text-decoration: none;
+    }
+
+    .container button {
+        font-size: 11px;
+    }
+
+    .container input {
+        font-size: 11px;
+    }
+
+    .social-icons a i{
+        font-size: 1rem;
+    }
+
+    .toggle-panel .main-img{
+        width: 95%;
+        height: 95%;
+    }
+  }
+
+
+  @media only screen and (max-width: 590px) {
+    /* Reset de base */
+    .container {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        padding: 20px;
+        overflow: hidden;
+    }
+
+    /* Masquer le toggle-container */
+    .toggle-container {
+        display: none;
+    }
+
+    /* Conteneur des formulaires */
+    .form-container {
+        width: 100%;
+        position: relative;
+        transition: height 0.6s ease;
+    }
+
+    /* Style des formulaires */
+    .sign-in, .sign-up {
+        width: 100%;
+        background: white;
+        border-radius: 10px;
+        padding: 25px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 1s ease;
+        opacity: 0;
+        transform: translateX(-100%);
+        pointer-events: none;
+    }
+
+    /* Formulaire actif */
+    .sign-in {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: all;
+        position: relative;
+    }
+
+    /* Animation quand active */
+    .container.active .sign-in {
+        opacity: 0;
+        transform: translateX(100%);
+        pointer-events: none;
+        position: absolute;
+    }
+
+    .container.active .sign-up {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: all;
+        position: relative;
+    }
+
+    /* Boutons de switch */
+    .container .switch-button {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #555;
+    }
+
+    .container .switch-button button {
+        background: none;
+        border: none;
+        color:#333;
+        text-decoration: underline;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    .container .switch-button button:hover {
+        color: #000;
+        box-shadow: none;
+    }
+    .mobile-img,.mobile-img2{
+        display: block;
+        position: absolute;
+        width: 10%;
+        z-index: 200;
+    }
+    .mobile-img{
+        top: 20px;
+        right: 20px;
+        rotate: 30deg;
+    }
+    .mobile-img2{
+       bottom: 10%;
+       left: 20px;
+       rotate: -70deg;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .sign-in, .sign-up {
+        padding: 0px;
+    }
+}
+
+@media only screen and (max-width: 370px){
+    .mobile-img,.mobile-img2{
+        width: 12%;
+    }
+}
